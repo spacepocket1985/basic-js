@@ -40,15 +40,16 @@ function transform(arr) {
   if (!(arr instanceof Array) || !(Array.isArray(arr))) {
     throw new Error("'arr' parameter must be an instance of the Array!");
   }
- 
 
-    let transformArr = [];
+  if (arr.length === 0){return []} 
 
-    for (let i = 0; i < arr.length; i++) {
-        (arr[i] == '--double-prev'|| arr[i + 1] == '--discard-prev'||arr[i] == '--discard-prev') ? ("") :(arr[i + 1] == '--double-prev') ? (transformArr.push(arr[i]) && transformArr.push(arr[i]) && i++) : (arr[i + 1] == '--discard-next') ? (transformArr.push(arr[i]) && (i = i + 2)) : (arr[i + 1] == '--double-next' && (arr[i + 2])) ? (transformArr.push(arr[i]) && transformArr.push(arr[i + 2]) && i++) : (arr[i] != '--double-next') ? (transformArr.push(arr[i])) : ("")
-    }
+  let transformArr = [];
 
-    return transformArr
+  for (let i = 0; i < arr.length; i++) {
+    (arr[i] == '--double-prev' || arr[i + 1] == '--discard-prev' || arr[i] == '--discard-prev') ? ("") : (arr[i + 1] == '--double-prev') ? (transformArr.push(arr[i]) && transformArr.push(arr[i]) && i++) : (arr[i + 1] == '--discard-next') ? (transformArr.push(arr[i]) && (i = i + 2)) : (arr[i + 1] == '--double-next' && (arr[i + 2])) ? (transformArr.push(arr[i]) && transformArr.push(arr[i + 2]) && i++) : (arr[i] != '--double-next') ? (transformArr.push(arr[i])) : ("")
+  }
+
+  return transformArr
 }
 
 
