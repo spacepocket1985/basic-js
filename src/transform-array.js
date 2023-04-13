@@ -37,7 +37,7 @@ const { NotImplementedError } = require('../extensions/index.js');
 // }
 
 function transform(arr) {
-  if git|| !arr instanceof Array) {
+  if (!Array.isArray(arr) || !arr instanceof Array) {
     throw new Error("'arr' parameter must be an instance of the Array!");
   }
  
