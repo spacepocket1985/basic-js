@@ -11,11 +11,20 @@ const { NotImplementedError } = require('../extensions/index.js');
  * For n = 152, the output should be 52
  *
  */
-function deleteDigit(/* n */) {
-  throw new NotImplementedError('Not implemented');
-  // remove line with error and write your code here
+function deleteDigit(n) {
+  str = n + "";
+  let pos;
+  
+  for (let i=0; i< str.length; i++) { 
+      if (str[i]<str[i+1]) {
+          pos = i;
+          break
+      }
+  }
+  return Number(str.substring(-1, pos) + str.substring(pos+1, str.length))
+ 
 }
-
+//npm run test ./test/transform-array.test
 module.exports = {
   deleteDigit
 };
